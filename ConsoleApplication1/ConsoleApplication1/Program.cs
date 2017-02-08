@@ -41,6 +41,30 @@ namespace ConsoleApplication1
 
             Console.WriteLine("Correct! Good guess!");
         }
+
+        public static void checkString(string str)
+        {
+            int length = str.Length;
+            Console.WriteLine("The string has " + length + " characters");
+
+            int charValue;
+            foreach (char c in str)
+            {
+                charValue = (int)c;
+
+
+                Console.WriteLine("The ASCII value for " + c + " is " + charValue);
+            }
+
+            if (length == 1)
+            {
+                Console.WriteLine("Only one char");
+            }
+            else if (length >= 2)
+            {
+                Console.WriteLine("The last character is " + str.Substring(length -1));
+            }
+        }
         static void Main(string[] args)
         {
             //comment
@@ -130,23 +154,16 @@ namespace ConsoleApplication1
                 Console.WriteLine("Enter a random string:");
                 randString = Console.ReadLine();
 
-                if (String.IsNullOrEmpty(randString))
+                if (String.IsNullOrEmpty(randString) || String.IsNullOrWhiteSpace(randString))
                 {
                     Console.WriteLine("You didn't write anything...");
                 }
 
-            } while (String.IsNullOrEmpty(randString));
+            } while (String.IsNullOrEmpty(randString) || String.IsNullOrWhiteSpace(randString));
 
+            checkString(randString);
 
-
-            int charValue;
-            foreach (char c in randString)
-            {
-                charValue = (int)c;
-
-
-                Console.WriteLine("The ASCII value for " + c + " is " + charValue);
-            }
+          
 
 
 
